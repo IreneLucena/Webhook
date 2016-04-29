@@ -21,9 +21,24 @@
 		$dir="uploads/".$id;
 		
 		
-	echo'<div class="contenedorTabla">
-		<form action="listar.php" method="post">
-		<table class="candidatos">
+	echo'
+	<div class="contenedorTabla">
+	<div class="accordion">
+	<form action="listar.php" method="post">
+		<div class="accordion-section">
+			<a class="title" href="#accordion'.$id.'">'.$nombre.'</a>
+			<div id="accordion'.$id.'" class="accordion-section-content">
+				<div class="fecha">Fecha de alta : '.$fecha.'</div>
+				<div class="asunto">Asunto : '.$asunto.'</div>
+				<div class="categoria">Categoría : '.$categoria.'</div>
+				<div class="cuerpo"> Leer mensaje : <div class="cuerpoMensaje">'.$cuerpo.'</div></div>
+			</div>	
+		</div>
+	</form>
+	</div>
+	</div>';
+		//====Que sí, muy bonito con la tabla, pero vamos a probar otra cosita====
+		 /* <table class="candidatos">
 			<thead>
 		    <tr>
 			    <th colspan="2" id="nombre">'.$data['nombre'].'</th>
@@ -56,8 +71,8 @@
 	    			<input type="button" name="Rechazar" class="boton" id='.$id.' value="Rechazar" onclick="rechazar('.$id.')" />
 	    		
 	    		</td></tr>
-			</tbody>';
-		echo "</table></form></div>";
+			</tbody></table>';
+		echo "</form></div>";*/
 	}
 
 echo '</div>';
@@ -137,6 +152,13 @@ function abrirVentana()
 	ventana.document.write('<h1>Adjuntos de '+nombre+'</h1>');
 	ventana.document.write('</div>');
 }
+
+$(function() {
+    $( ".accordion" ).accordion({
+      collapsible: true
+    });
+  });
+
 </script>
 
 

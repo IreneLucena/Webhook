@@ -4,6 +4,8 @@
 
     <!-- jQuery -->
     <script src="business/js/jquery.js"></script>
+    <script src="business/js/accordion.js"></script>
+    
 
     <!-- Bootstrap Core JavaScript -->
     <script src="business/js/bootstrap.min.js"></script>
