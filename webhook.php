@@ -1,5 +1,5 @@
 <?php
-
+header ('Content-type: text/html; charset=utf-8');
 //============Creamos el log si no existe============
 $LOG_PATH = "uploads/uploadlog.txt";
 if(!file_exists($LOG_PATH)) {
@@ -14,41 +14,35 @@ $body=$_POST["text"];
 $attNum=$_POST["attachments"];
 
 $date = new DateTime();
-$date=date("d/m/Y");
+$date=date("Y-m-d");
 
 $status="Entrante";
-$category="Sin categoría";
+$category="Sin categorÃ­a";
 
-//============Conexión a la BD============
+//============ConexiÃ³n a la BD============
 
 $conn=mysqli_connect("lldk227.servidoresdns.net","qvo799","Arteria123","qvo799");
-if ($conn->connect_error)
-{
+if ($conn->connect_error){
 	writeInLog($LOG_PATH, "Database error: " . $conn->connect_error);
 }
 
 //============Insertamos============
-else
-{
+else{
 	$query="INSERT INTO candidatos (nombre, asunto, cuerpo, adjuntos, fecha_alta, estado, categoria)
 	VALUES ('$from','$subject','$body','$attNum','$date','$status','$category')";
 
-	if ($conn->query($query))
-	{
+	if ($conn->query($query)){
 		writeInLog($LOG_PATH, "$from :: $subject :: $body :: $attNum :: $date :: $status :: $category");
 		
 		$query2="SELECT * FROM candidatos WHERE nombre='$from'";
 		$result=mysqli_query($conn, $query2);
 		
-		if ($result)
-		{
-			while ($data=$result->fetch_assoc())
-			{
+		if ($result){
+			while ($data=$result->fetch_assoc()){
 				$id=$data['id'];
 				echo $id;
 				writeInLog($LOG_PATH, "attachments: " . $attNum);
-				if($attNum > 0)
-				{
+				if($attNum > 0){
 					//Creamos carpeta para los adjuntos...
 					$directory="uploads/".$id;
 					
@@ -57,9 +51,7 @@ else
 						chmod('uploads', 0777);
 						chmod('uploads/'.$id, 0777);
 					}
-					
-					for($i=0; $i < $attNum; $i++)
-					{
+					for($i=0; $i < $attNum; $i++){
 						$att = "attachment".($i+1);
 						$tmp = $_FILES[$att]["tmp_name"];
 						$from = $_FILES[$att]["name"];
@@ -81,7 +73,6 @@ else
 	}
 }
 $conn->close();
-
 
 function writeInLog($path, $txt){
 	$fo = fopen($path, "w");

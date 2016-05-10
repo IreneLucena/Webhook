@@ -9,8 +9,5 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="business/js/bootstrap.min.js"></script>
-<?php
-	mysqli_close($conn);
-?>
 </body>
 </html>
