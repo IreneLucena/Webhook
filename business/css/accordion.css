@@ -5,15 +5,14 @@
 	box-sizing:border-box;
 }
 
-.accordion 
+.accordion
 {
 	box-shadow:0px 1px 3px rgba(0,0,0,0.25);
 	border-radius:3px;
 	background:#ffffff;
 	width:45%;
-	height:160px;
+	height:200px;
 	margin: 2%;
-
 }
 
 /*----- Section Titles -----*/
@@ -47,56 +46,73 @@ a:visited
 /*----- Section Content -----*/
 .accordion-section-content {
 	height:75%;
-	font-size:80%;
 	display: flex;
 }
 
 .firstContainer
 {
-	width: 35%;
+	width: 40%;
 	height:100%;
-	margin:10px;
+	margin-left: 5px;
+	margin-top:7px;
+}
+.dateC
+{
+	margin-left: 10px;
 }
 
-.secondContainer
+.SecondContainer
 {
-	background-image: url("../img/comentario.png");
-	background-repeat: no-repeat;
-	width: 30%;
-	height:100%;
-    background-position: center;
+	width: 35%;
+	height: 100%;
+	margin:10px;
+	display: flex;
+	flex-wrap: wrap;
+	font-size:80%;
 }
+
 .thirdContainer
 {
-	width: 31%;
+	width: 25%;
 	height:100%;
 	display:flex;
 	flex-wrap: wrap;
 	flex-direction: column;
 	align-items: flex-end;
+	margin-top:12px;
+	margin-right: 10px;
 }
 
 .cuerpoMensaje
 {
 	position:absolute;
-	margin-left:100px;
+	margin-left:80px;
 	margin-top:-70px;
 	visibility: hidden;
 	background: rgba(100,100,100,0.9);
 	list-style: none;
 	min-width:200px;
-	min-height:200px;
+	min-height:300px;
 	color:white;
 }
 
-.secondContainer:hover .cuerpoMensaje{
+.message:hover .cuerpoMensaje{
 	visibility:visible;
 }
 
-.fecha, .asunto, .categoria, .darCategoria
-{
-	display: block;
-	width:100%;
-	height:25%;
+.date, .candidateStatus, .category {
+	width: 100%;
+	height: 24%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
-
+.message{
+	background-color: #00a686;
+	color:white;
+	display:inline-block;
+	padding: 2px;
+	text-align: center;
+	margin-top: -4px;
+	margin-left: 20%;
+}

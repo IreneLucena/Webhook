@@ -6,9 +6,7 @@
 
 body {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    background-image: url("../img/bgg.jpg");
-    background-repeat: repeat;
-
+    background-color: rgba(255, 255, 255, 1);
 }
 
 h1,
@@ -35,14 +33,14 @@ hr {
     background-image: url("../img/hh.jpg");
     background-repeat: repeat-x;
     width:100%;
-    height:200px;
+    height:120px;
 }
 .brand span
 {
     display:table;
     margin-left:auto;
     margin-right:auto;
-    margin-top:30px;
+    margin-top: 0px;
 }
 
 .navbar-brand {
@@ -84,10 +82,7 @@ hr {
 }
 
 .box {
-	margin:60px;
-    margin-left:180px;
-    height:auto;
-    width:85%;
+    width:100%;
     padding: 10px;
     background: #f0de9e;
     box-shadow: 10px 10px 5px rgba(31, 31, 31, 0.3);
@@ -174,12 +169,12 @@ footer {
 
     .navbar-default {
         border: none;
-		background-color: rgba(248, 246, 173, 0.9);
-        position:fixed;
-		top:79px;
+		background-color: rgba(63, 63, 63, 0.9);
+        position: static;
 		height:100%;
 		width:180px;
-		margin-top:111px;
+        margin-top:-10px;
+        color:white;
     }
 
 
@@ -228,40 +223,33 @@ td p
 	margin-bottom:5px;
 }
 
-.boton
+.button
 {
-	background:-moz-linear-gradient(top,#5CCD00 0%,#4AA400 100%);
-	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#5CCD00),color-stop(100%,#4AA400));
-	background:-webkit-linear-gradient(top,#5CCD00 0%,#4AA400 100%);
-	background:-o-linear-gradient(top,#5CCD00 0%,#4AA400 100%);
-	background:-ms-linear-gradient(top,#5CCD00 0%,#4AA400 100%);
-	background:linear-gradient(top,#5CCD00 0%,#4AA400 100%);
-	filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#5CCD00', endColorstr='#4AA400',GradientType=0);
 	color:white;
-	font-size:18px;
+	font-size:14px;
 	border-radius:5px;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
     font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
     width:80%;
-    height:60px;
-    margin:0px;
+    height:40px;
+    margin-top:12px;
     font-weight: 700;
-	background:#00bf9b;
+	background: rgba(105, 105, 105, 1);
 }
 
-.boton:hover 
+.button:hover 
 {
-	background: #00a686;
+    background: rgb(88, 88, 88);
 }
 
-.boton:focus,.botonRec:focus,.botonAc:focus
+.button:focus,.botonRec:focus,.botonAc:focus
 {
 	outline:none;
 }
-.boton:active
+.button:active
 {
-	background: #008c6e;
+    background: rgb(63, 63, 63);
 	color: white;
 }
 form
@@ -269,39 +257,6 @@ form
 	float:left;
 	width: 100%;
 }
-
-img.icono
-{
-	display: block;
-    margin-left: auto;
-    margin-right: auto
-}
-
-img src
-{
-	url:'business/img/files.png';
-}
-
-.archivo
-{
-background-image: url('/business/img/files.png');
-background-repeat: no-repeat;
-margin-left:auto;
-margin-right:auto;
-width:40px;
-height:45px;
-}
-
-.archivo:hover
-{
-	background-image: url('/business/img/files1.png');
-	background-repeat: no-repeat;
-	margin-left:auto;
-	margin-right:auto;
-	width:40px;
-	height:45px;
-}
-
 
 .navbar ul ul{
 	position:absolute;
@@ -381,6 +336,13 @@ margin:0;
 width:100px;
 height:100%;
 }
+.container {
+    padding:0;
+    margin:0;
+    width:700px;
+    height:100%;
+}
+
 @media (min-width: 768px) {
   .container {
     width: 750px;
@@ -388,12 +350,14 @@ height:100%;
 }
 @media (min-width: 992px) {
   .container {
-    width: 970px;
+        width: 970px;
+        margin-left: 19%;
+        margin-top: -65%;
   }
 }
 @media (min-width: 1200px) {
   .container {
-    width: 1170px;
+    width: 900px;
   }
 }
 .container-fluid {
@@ -404,16 +368,16 @@ height:100%;
 }
 
 /*---Checkbox----*/
-input[type='checkbox'] {
+.filterS,.filterC {
     opacity: 0;
     float: left;
     height:30px;
     width: 30px;
     position:absolute;
- 	z-index:1;	
+ 	z-index:4;
 }
 
-input[type='checkbox'] + label {
+.filterS + label, .filterC + label {
     margin: 5px;
     clear: none;
     padding: 5px 0 5px 30px;
@@ -423,20 +387,20 @@ input[type='checkbox'] + label {
     width:100%;
 }
 
-input[type='checkbox']:checked + label {
+.filterS:checked + label, .filterC:checked + label {
     background-image: url('../img/checkbox.png');
     background-repeat: no-repeat;
 }
 
-.statusDiv
+.statusDiv, .catDiv
 {
     width:160px;
     height:40px;
-    background:#005c6b;
+    background: #7a5573;
     margin-left: -10px;
     position:relative;
     border-style: solid;
-    border-color: #048f8a;
+    border-color: #CC99CC;
     border-width: 5px 5px 5px 5px;
     margin-top:10px;
     display:table;
@@ -444,10 +408,10 @@ input[type='checkbox']:checked + label {
     margin-right:auto;
     color:white;
 }
-.statusDiv:hover
+.statusDiv:hover, .catDiv:hover
 {
-    background: #003e46;
-    border-color: #045a55;
+    background: #604159;
+    border-color: #b889b8;
     color:white;
 }
 
@@ -458,3 +422,16 @@ input[type='checkbox']:checked + label {
     flex-wrap: wrap;
 }
 
+input[type=checkbox].checkBoxToGiveCat
+{
+float:right;
+}
+
+.checkCategory
+{
+    display: inline-block;
+    margin: 5px;
+    color: #fef4e9;
+    border: solid 4px #3f3f3f;
+    background: #585858;
+}
